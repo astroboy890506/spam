@@ -24,6 +24,7 @@ def main():
 
             # Make a prediction
             result = lr_loaded.predict(Snew)
+            st.write(f"Predicted value: {result[0]}")
             # if result == 1:
             #     st.success("This message is likely Spam.")
             # else:
