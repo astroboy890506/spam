@@ -24,10 +24,10 @@ def main():
 
             # Make a prediction
             result = lr_loaded.predict(Snew)
-            if result == 1:
-                st.success("This message is likely Spam.")
-            else:
-                st.success("This message is likely Ham.")
+            # if result == 1:
+            #     st.success("This message is likely Spam.")
+            # else:
+            #     st.success("This message is likely Ham.")
         else:
             st.error("Please enter a sentence for prediction.")
 
