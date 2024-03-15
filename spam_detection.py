@@ -34,10 +34,10 @@ def main():
         
         # Add predictions to the dataframe
         df['Prediction'] = predictions
-        df['Prediction'] = df['Prediction'].map({0: 'Ham', 1: 'Spam'})  # Convert numeric predictions to labels
+        # df['Prediction'] = df['Prediction'].map({0: 'Ham', 1: 'Spam'})  # Convert numeric predictions to labels
         
         # Display the dataframe with predictions
-        st.write("Predictions:")
+        st.write(f"Predicted: {result[0]}")
         st.dataframe(df)
 
 # Predict button and single sentence input (optional feature)
@@ -51,7 +51,7 @@ def single_sentence_prediction():
 
             # Make a prediction
             result = lr_loaded.predict(Snew)
-            st.write(f"Predicted value: {result[0]}")
+            st.write(f"Predicted: {result[0]}")
         else:
             st.error("Please enter a sentence for prediction.")
 
