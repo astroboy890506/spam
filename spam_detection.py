@@ -37,7 +37,7 @@ def main():
         # df['Prediction'] = df['Prediction'].map({0: 'Ham', 1: 'Spam'})  # Convert numeric predictions to labels
         
         # Display the dataframe with predictions
-        st.write(f"Predicted: {result[0]}")
+        st.write(f"Predicted:")
         st.dataframe(df)
 
 # Predict button and single sentence input (optional feature)
