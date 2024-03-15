@@ -51,7 +51,7 @@ def single_sentence_prediction():
 
             # Make a prediction
             result = lr_loaded.predict(Snew)
-            st.write(f"Predicted value: {'Spam' if result[0] == 1 else 'Ham'}")
+            st.write(f"Predicted value: {result[0]}")
         else:
             st.error("Please enter a sentence for prediction.")
 
