@@ -95,7 +95,7 @@
 #     main()
 #     single_sentence_prediction()
 
-======================================================(bar chart)
+#======================================================(bar chart)
 # First, import Streamlit, Pandas, and necessary libraries
 import streamlit as st
 from joblib import load
