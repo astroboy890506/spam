@@ -100,6 +100,9 @@
 import streamlit as st
 from joblib import load
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 
 # Load your logistic regression model and CountVectorizer
 lr_loaded = load('logistic_regression_model.joblib')
