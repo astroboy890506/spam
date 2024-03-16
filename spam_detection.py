@@ -100,7 +100,6 @@
 import streamlit as st
 from joblib import load
 import pandas as pd
-import matplotlib.pyplot as plt
 
 # Load your logistic regression model and CountVectorizer
 lr_loaded = load('logistic_regression_model.joblib')
@@ -145,20 +144,27 @@ def predict_and_display(sentences):
     # Make predictions
     results = lr_loaded.predict(transformed_sentences)
 
-    # Tabulate results
-    counts = pd.Series(results).value_counts()
-    st.write("Predictions:")
-    st.table(counts)
+    # Combine the inputs and predictions into a DataFrame
+    results_df = pd.DataFrame({
+        'Input': sentences,
+        'Prediction': results
+    })
 
-    # Display histogram
+    # Tabulate and display the results
+    with st.expander("Show/Hide Prediction Table"):
+        st.table(results_df)
+
+    # Display histogram of predictions
     st.write("Histogram of Predictions:")
     fig, ax = plt.subplots()
-    counts.plot(kind='bar', ax=ax)
+    prediction_counts = pd.Series(results).value_counts().sort_index()
+    prediction_counts.plot(kind='bar', ax=ax)
     ax.set_title("Number of Spam and Ham Predictions")
     ax.set_xlabel("Category")
     ax.set_ylabel("Count")
+    ax.yaxis.set_major_locator(ticker.MaxNLocator(integer=True))  # Ensure y-axis has integer ticks
     st.pyplot(fig)
-
 if __name__ == '__main__':
     main()
+
 
